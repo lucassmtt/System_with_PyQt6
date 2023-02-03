@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'untitled.ui'
+# Form implementation generated from reading ui file 'login.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.6
 #
@@ -11,14 +11,14 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_MainWindow(object):
+class Main_window_login(object):
     def setupUi(self, MainWindow):
-        MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(826, 422)
+        MainWindow.setObjectName("Main Window")
+        MainWindow.resize(661, 480)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.verticalLayoutWidget = QtWidgets.QWidget(self.centralwidget)
-        self.verticalLayoutWidget.setGeometry(QtCore.QRect(-1, -1, 831, 291))
+        self.verticalLayoutWidget.setGeometry(QtCore.QRect(0, 0, 651, 321))
         self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
@@ -36,23 +36,23 @@ class Ui_MainWindow(object):
         self.input_senha.setObjectName("input_senha")
         self.verticalLayout.addWidget(self.input_senha)
         self.horizontalLayoutWidget = QtWidgets.QWidget(self.centralwidget)
-        self.horizontalLayoutWidget.setGeometry(QtCore.QRect(0, 300, 831, 80))
+        self.horizontalLayoutWidget.setGeometry(QtCore.QRect(0, 319, 661, 121))
         self.horizontalLayoutWidget.setObjectName("horizontalLayoutWidget")
         self.horizontalLayout = QtWidgets.QHBoxLayout(self.horizontalLayoutWidget)
         self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout.setObjectName("horizontalLayout")
-        self.btn_login = QtWidgets.QPushButton(self.horizontalLayoutWidget)
-        self.btn_login.setObjectName("btn_login")
-        self.horizontalLayout.addWidget(self.btn_login)
         self.btn_signin = QtWidgets.QPushButton(self.horizontalLayoutWidget)
         self.btn_signin.setObjectName("btn_signin")
         self.horizontalLayout.addWidget(self.btn_signin)
+        self.btn_login = QtWidgets.QPushButton(self.horizontalLayoutWidget)
+        self.btn_login.setObjectName("btn_login")
+        self.horizontalLayout.addWidget(self.btn_login)
         self.btn_esqueci = QtWidgets.QPushButton(self.horizontalLayoutWidget)
         self.btn_esqueci.setObjectName("btn_esqueci")
         self.horizontalLayout.addWidget(self.btn_esqueci)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 826, 22))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 661, 22))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -64,19 +64,29 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Faça login com sua conta!"))
+        MainWindow.setFixedSize(670, 450)
         self.label_email.setText(_translate("MainWindow", "Email:"))
-        self.label_senha.setText(_translate("MainWindow", "Senha"))
-        self.btn_login.setText(_translate("MainWindow", "Log-in"))
+        self.label_senha.setText(_translate("MainWindow", "Senha:"))
         self.btn_signin.setText(_translate("MainWindow", "Sign-in"))
+        self.btn_login.setText(_translate("MainWindow", "Log-in"))
         self.btn_esqueci.setText(_translate("MainWindow", "Esqueci minha senha"))
+        self.btn_esqueci.clicked.connect(self.criar_esqueci)
 
+    def criar_esqueci(self):
+        print('Call-back')
+        from esqueci import Window_forget_password
+        self.Janela = QtWidgets.QMainWindow()
+
+        self.ui_esqueci = Window_forget_password()
+        self.ui_esqueci.setupUi(self.Janela)
+        self.Janela.show()
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
+    ui = Main_window_login()
     ui.setupUi(MainWindow)
     MainWindow.show()
-    sys.exit(app.exec_())
+    sys.exit(app.exec())

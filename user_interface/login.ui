@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>826</width>
-    <height>422</height>
+    <width>661</width>
+    <height>480</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,10 +17,10 @@
    <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>-1</x>
-      <y>-1</y>
-      <width>831</width>
-      <height>291</height>
+      <x>0</x>
+      <y>0</y>
+      <width>651</width>
+      <height>321</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
@@ -37,7 +37,7 @@
      <item>
       <widget class="QLabel" name="label_senha">
        <property name="text">
-        <string>Senha</string>
+        <string>Senha:</string>
        </property>
       </widget>
      </item>
@@ -50,23 +50,23 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>300</y>
-      <width>831</width>
-      <height>80</height>
+      <y>319</y>
+      <width>661</width>
+      <height>121</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <widget class="QPushButton" name="btn_login">
+      <widget class="QPushButton" name="btn_signin">
        <property name="text">
-        <string>Log-in</string>
+        <string>Sign-in</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="btn_signin">
+      <widget class="QPushButton" name="btn_login">
        <property name="text">
-        <string>Sign-in</string>
+        <string>Log-in</string>
        </property>
       </widget>
      </item>
@@ -85,7 +85,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>826</width>
+     <width>661</width>
      <height>22</height>
     </rect>
    </property>

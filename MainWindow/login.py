@@ -71,16 +71,30 @@ class Main_window_login(object):
         self.btn_signin.setText(_translate("MainWindow", "Sign-in"))
         self.btn_login.setText(_translate("MainWindow", "Log-in"))
         self.btn_esqueci.setText(_translate("MainWindow", "Esqueci minha senha"))
-        self.btn_esqueci.clicked.connect(self.criar_esqueci)
 
-    def criar_esqueci(self):
-        print('Call-back')
+        self.btn_login.clicked.connect(self.call_login)
+        self.btn_signin.clicked.connect(self.call_signin)
+        self.btn_esqueci.clicked.connect(self.call_esqueci)
+    def call_esqueci(self):
+        print('Call-back ')
         from esqueci import Window_forget_password
         self.Janela = QtWidgets.QMainWindow()
 
         self.ui_esqueci = Window_forget_password()
         self.ui_esqueci.setupUi(self.Janela)
         self.Janela.show()
+
+    def call_signin(self):
+        print('callback signin')
+        from signin import signin_ui
+        self.janela_signin = QtWidgets.QMainWindow()
+
+        self.ui_signin = signin_ui()
+        self.ui_signin.setupUi(self.janela_signin)
+        self.janela_signin.show()
+
+    def call_login(self):
+        ...
 
 if __name__ == "__main__":
     import sys

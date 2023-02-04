@@ -9,7 +9,10 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+import pathlib
 
+PATH_ROOT = pathlib.Path()
+PATH_JSON = PATH_ROOT.absolute() / 'DB' / 'cadastro.json'
 
 class signin_ui(object):
     def setupUi(self, Form):
@@ -98,6 +101,32 @@ class signin_ui(object):
         self.sobrenome_label_3.setText(_translate("Form", "Email repetido:"))
         self.nome_label_3.setText(_translate("Form", "Número de telefone:"))
         self.pushButton.setText(_translate("Form", "Pronto!"))
+        self.pushButton.clicked.connect(self.novo_usuario)
+    def novo_usuario(self):
+        flag = True
+        import json
+        cont = 0
+        nova_pessoa = {}
+        nova_pessoa.setdefault('_id_', str(cont))
+        nova_pessoa.setdefault('Nome', self.input_nome.text())
+        nova_pessoa.setdefault('Sobrenome', self.input_sobrenome.text())
+        nova_pessoa.setdefault('Telefone', self.input_nome_3.text())
+        if self.input_sobrenome_2.text() == self.input_sobrenome_3.text():
+            nova_pessoa.setdefault('Email', self.input_sobrenome_2.text())
+        else:
+            print('erro, digite o email igual')
+            from error import error_ui
+            self.MainWindowError = QtWidgets.QMainWindow()
+            self.ui_error = error_ui()
+            self.ui_error.setupUi(self.MainWindowError)
+            self.MainWindowError.show()
+
+            flag = False
+
+        print('cadastrado')
+        if flag is True:
+            with open(PATH_JSON, 'a+', encoding='utf-8') as file:
+                json.dump(nova_pessoa, file)
 
 
 if __name__ == "__main__":

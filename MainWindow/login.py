@@ -9,6 +9,11 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+import pathlib
+
+ROOT = pathlib.Path()
+
+PATH_JSON = ROOT.absolute() / 'DB' / 'cadastro.json'
 
 
 class Main_window_login(object):
@@ -75,6 +80,23 @@ class Main_window_login(object):
         self.btn_login.clicked.connect(self.call_login)
         self.btn_signin.clicked.connect(self.call_signin)
         self.btn_esqueci.clicked.connect(self.call_esqueci)
+
+    def ler_json(self):
+        import json
+        with open(PATH_JSON, 'r+', encoding='utf-8') as file:
+            content = json.load(file)
+            print(content)
+
+    def call_login(self):
+        print('Call-back login')
+        import json
+        with open(PATH_JSON, 'r', encoding='utf-8') as file:
+            content = json.load(file)
+            id = content['_id_']
+            email = content['Email']
+            print(email)
+            print(id)
+
     def call_esqueci(self):
         print('Call-back ')
         from esqueci import Window_forget_password
@@ -93,8 +115,7 @@ class Main_window_login(object):
         self.ui_signin.setupUi(self.janela_signin)
         self.janela_signin.show()
 
-    def call_login(self):
-        ...
+
 
 if __name__ == "__main__":
     import sys

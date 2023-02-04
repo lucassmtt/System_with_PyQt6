@@ -34,8 +34,8 @@ class Window_forget_password(object):
         self.label_2.setObjectName("label_2")
         self.pushButton_2 = QtWidgets.QPushButton(Form)
         self.pushButton_2.setGeometry(QtCore.QRect(0, 180, 329, 25))
-        self.pushButton_2.setStyleSheet("")
-        self.pushButton_2.setText("")
+        # self.pushButton_2.setStyleSheet("")
+        # self.pushButton_2.setText("")
         self.pushButton_2.setObjectName("pushButton_2")
 
         self.retranslateUi(Form)

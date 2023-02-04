@@ -126,7 +126,7 @@ class signin_ui(object):
         print('cadastrado')
         if flag is True:
             with open(PATH_JSON, 'a+', encoding='utf-8') as file:
-                json.dump(nova_pessoa, file)
+                json.dump(nova_pessoa, file, ensure_ascii=False, indent=2)
 
 
 if __name__ == "__main__":

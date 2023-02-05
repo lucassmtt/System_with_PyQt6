@@ -1,6 +1,18 @@
-class login_db:
-    def __init__(self):
-        import sqlite3 as sql
+#DDL -> METADADOS
+import sqlite3 as lite
 
-        PATH_DB = 'primeiro_banco.db'
-        db = sql.connect(PATH_DB)
+db = lite.connect('mybase.db')
+cursor = db.cursor()
+
+comando = """
+CREATE TABLE users (
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, 
+    name TEXT NOT NULL,
+    phone TEXT NOT NULL,
+    email TEXT UNIQUE NOT NULL
+)
+"""
+
+cursor.execute(comando)
+db.commit()
+db.close()

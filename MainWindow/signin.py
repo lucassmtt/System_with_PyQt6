@@ -14,7 +14,7 @@ import pathlib
 PATH_ROOT = pathlib.Path()
 PATH_JSON = PATH_ROOT.absolute() / 'DB' / 'cadastro.json'
 
-class signin_ui(object):
+class signin_Ui(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(527, 640)
@@ -90,6 +90,8 @@ class signin_ui(object):
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
+        self.pushButton.clicked.connect(self.novo_usuario)
+
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
@@ -101,7 +103,7 @@ class signin_ui(object):
         self.sobrenome_label_3.setText(_translate("Form", "Email repetido:"))
         self.nome_label_3.setText(_translate("Form", "Número de telefone:"))
         self.pushButton.setText(_translate("Form", "Pronto!"))
-        self.pushButton.clicked.connect(self.novo_usuario)
+
     def novo_usuario(self):
         flag = True
         import json
@@ -133,7 +135,7 @@ if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     Form = QtWidgets.QWidget()
-    ui = signin_ui()
+    ui = signin_Ui()
     ui.setupUi(Form)
     Form.show()
     sys.exit(app.exec_())

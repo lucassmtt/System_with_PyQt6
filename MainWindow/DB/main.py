@@ -1,4 +1,6 @@
-lista = ['lucas', 'gabriel', 'motta']
-cont = 0
-dicio = {nome: cont for nome, cont in enumerate(lista)}
-print(dicio)
+class login_db:
+    def __init__(self):
+        import sqlite3 as sql
+
+        PATH_DB = 'primeiro_banco.db'
+        db = sql.connect(PATH_DB)

@@ -33,9 +33,11 @@ class Auth:
             print('Tabela já criada')
 
 
-    def connect_execute_commit_close(self, func):
+    def connect_execute_commit_close(func):
         def decorador(*args):
-            connect = self.sql.connect(self.PATH_DB)
+            import sqlite3 as sql
+            from pathlib import Path
+            connect = sql.connect(Path().absolute() / 'mybase.db')
             cursor = connect.cursor()
             sql_funtion = func(*args)
             cursor.execute(sql_funtion)
@@ -46,13 +48,13 @@ class Auth:
 
     @connect_execute_commit_close
     def db_insert(self):
-        try:
-            new_data = f"""
-            INSERT INTO users (name, phone, email)
-            VALUES('{self.nome_completo}''{self.phone}''{self.email}')"""
+        # try:
+        new_data = f"""
+        INSERT INTO users (name, phone, email)
+        VALUES('{self.nome_completo}''{self.phone}''{self.email}')"""
 
-        except Exception as e:
-            print(f'Impossível inserir dados: {e}')
+        # except Exception as e:
+        print(f'Impossível inserir dados: {e}')
 
 
     @connect_execute_commit_close

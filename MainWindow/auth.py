@@ -8,12 +8,14 @@ class Auth:
         self.email = Email
         self.phone = Phone
         self.PATH_DB = Path().absolute() / 'DB' / 'mybase.db'
+
+
         print(self.PATH_DB)
 
         try:
             from pathlib import Path
             self.PATH_DB = PATH_DB = Path().absolute() / 'DB' / 'mybase.db'
-            db = self.sql.connect(PATH_DB)
+            db = self.sql.connect(self.PATH_DB)
             cursor = db.cursor()
 
             comando = """
@@ -33,17 +35,9 @@ class Auth:
             print('Tabela já criada')
 
 
-    def connect_execute_commit_close(func):
-        def decorador(*args):
-            import sqlite3 as sql
-            from pathlib import Path
-            connect = sql.connect(Path().absolute() / 'mybase.db')
-            cursor = connect.cursor()
-            sql_funtion = func(*args)
-            cursor.execute(sql_funtion)
-            connect.commit()
-            connect.close()
-        return decorador
+    def connect_execute_commit_close(self, func):
+        def decorador(self, *args):
+            connect = self.sql.connect(self.)
 
 
     @connect_execute_commit_close

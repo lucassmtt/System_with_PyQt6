@@ -1,2 +1,0 @@
-print('lucas e gay'
-      )

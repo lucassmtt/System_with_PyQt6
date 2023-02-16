@@ -37,7 +37,7 @@ class mainwindowLogin(object):
         self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.btn_signin = QtWidgets.QPushButton(self.horizontalLayoutWidget)
-        self.btn_signin.setObjectName("btn_signin")
+        self.btn_signin.setObjectName("btn_signup")
         self.horizontalLayout.addWidget(self.btn_signin)
         self.btn_login = QtWidgets.QPushButton(self.horizontalLayoutWidget)
         self.btn_login.setObjectName("btn_login")
@@ -57,7 +57,7 @@ class mainwindowLogin(object):
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
         self.btn_login.clicked.connect(self.call_login)
-        self.btn_signin.clicked.connect(self.call_signin)
+        self.btn_signin.clicked.connect(self.call_signup)
         self.btn_esqueci.clicked.connect(self.call_esqueci)
 
     def retranslateUi(self, MainWindow):
@@ -66,7 +66,7 @@ class mainwindowLogin(object):
         MainWindow.setFixedSize(670, 450)
         self.label_email.setText(_translate("MainWindow", "Email:"))
         self.label_senha.setText(_translate("MainWindow", "Senha:"))
-        self.btn_signin.setText(_translate("MainWindow", "Sign-in"))
+        self.btn_signin.setText(_translate("MainWindow", "Sign-up"))
         self.btn_login.setText(_translate("MainWindow", "Log-in"))
         self.btn_esqueci.setText(_translate("MainWindow", "Esqueci minha senha"))
 
@@ -88,9 +88,9 @@ class mainwindowLogin(object):
         self.ui_esqueci.setupUi(self.Janela)
         self.Janela.show()
 
-    def call_signin(self):
+    def call_signup(self):
         print('callback signin')
-        from signin import signin_Ui
+        from signup import signin_Ui
         self.janela_signin = QtWidgets.QMainWindow()
 
         self.ui_signin = signin_Ui()

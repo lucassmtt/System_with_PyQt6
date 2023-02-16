@@ -1,3 +1,6 @@
+import sqlite3
+
+
 class Auth:
     def __init__(self):
         from pathlib import Path
@@ -32,13 +35,18 @@ class Auth:
 
 
     def db_insert(self, name, phone, email, password):
-        new_user = f"""
-        INSERT INTO users (name, phone, email, password)
-        VALUES ('{name}', {phone}, '{email}', '{password}')
-    """
-        self.cursor.execute(new_user)
-        self.connect.commit()
-        self.connect.close()
+        try:
+            new_user = f"""
+            INSERT INTO users (name, phone, email, password)
+            VALUES ('{name}', {phone}, '{email}', '{password}')
+        """
+            self.cursor.execute(new_user)
+            self.connect.commit()
+            self.connect.close()
+            return 1
+
+        except:
+            return 2
 
 
 
@@ -63,4 +71,3 @@ class Auth:
             return 1
         else:
             return 2
-

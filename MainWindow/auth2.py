@@ -31,25 +31,32 @@ class Auth:
 
 
     def db_check(self):
+        self.flag = False
         comando = f"""
-        SELECT 'lio' FROM users
+        SELECT email FROM users
 """
         self.cursor.execute(comando)
-        for c in self.cursor.fetchone():
-            print(c)
-    # def db_insert(self):
-    #     if self.flag:
-    #         pass
-    #     else:
-    #         comando = f"""
-    #         INSERT INTO users (name, phone, email)
-    #         VALUES ('{self.nome_completo}', '{self.phone}', '{self.email}')
-    #         """
-    #         self.cursor.execute(comando)
-    #         self.connect.commit()
-    #         self.connect.close()
+        for i in self.cursor.fetchall():
+            print(i)
+            if i[0] == f'{self.email}':
+                print('ok')
+                self.flag = True
+        self.connect.commit()
+
+        print(self.flag)
+
+
+    def db_insert(self):
+
+        comando = f"""
+        INSERT INTO users (name, phone, email)
+        VALUES ('{self.nome_completo}', '{self.phone}', '{self.email}')
+        """
+        self.cursor.execute(comando)
+        self.connect.commit()
+        self.connect.close()
 
 
 
-a1 = Auth('Lucas', 'Gabriel', 'lucasmotinha', '2921-2922')
+a1 = Auth('Joel', 'Mendonça', 'mottinha4321@gmail.com', '3333-2922')
 a1.db_check()

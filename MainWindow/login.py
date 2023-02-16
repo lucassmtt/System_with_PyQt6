@@ -71,11 +71,14 @@ class mainwindowLogin(object):
         self.btn_esqueci.setText(_translate("MainWindow", "Esqueci minha senha"))
 
     def call_login(self):
-        print('Call-back login')
-        import sqlite3 as sql
-        from pathlib import Path
-        absolute_root = Path.absolute()
-        print(absolute_root)
+        import auth2
+        login = auth2.Auth()
+        if login.db_login(str(self.input_email.text()), str(self.input_senha.text())) == 1:
+            MainWindow.close()
+        else:
+            print('Senha ou email incorreto')
+
+
     def call_esqueci(self):
         print('Call-back ')
         from forget_password import Window_forget_password

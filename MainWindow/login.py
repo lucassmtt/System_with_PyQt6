@@ -1,4 +1,4 @@
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5 import QtCore, QtWidgets
 import pathlib
 
 ROOT = pathlib.Path()
@@ -71,7 +71,7 @@ class mainwindowLogin(object):
         self.btn_esqueci.setText(_translate("MainWindow", "Esqueci minha senha"))
 
     def call_login(self):
-        import auth2
+        from System_with_PyQt6.MainWindow.DB import auth2
         login = auth2.Auth()
         if login.db_login(str(self.input_email.text()), str(self.input_senha.text())) == 1:
             MainWindow.close()

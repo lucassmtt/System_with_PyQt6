@@ -6,24 +6,24 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>687</width>
+    <width>645</width>
     <height>480</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QWidget" name="MainWidget">
+  <widget class="QWidget" name="centralwidget">
    <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>30</y>
-      <width>591</width>
-      <height>261</height>
+      <x>20</x>
+      <y>0</y>
+      <width>601</width>
+      <height>231</height>
      </rect>
     </property>
-    <layout class="QVBoxLayout" name="Layout_input">
+    <layout class="QVBoxLayout" name="LayoutEntrar">
      <item>
       <widget class="QLabel" name="label_email">
        <property name="text">
@@ -35,43 +35,43 @@
       <widget class="QLineEdit" name="input_email"/>
      </item>
      <item>
-      <widget class="QLabel" name="label_senha">
+      <widget class="QLabel" name="label_password">
        <property name="text">
         <string>Senha:</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="input_senha"/>
+      <widget class="QLineEdit" name="input_password"/>
      </item>
     </layout>
    </widget>
    <widget class="QWidget" name="horizontalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>60</x>
-      <y>310</y>
-      <width>571</width>
-      <height>31</height>
+      <x>20</x>
+      <y>250</y>
+      <width>601</width>
+      <height>80</height>
      </rect>
     </property>
-    <layout class="QHBoxLayout" name="Layout_buttons">
+    <layout class="QHBoxLayout" name="Layout_btns">
      <item>
-      <widget class="QPushButton" name="btn_signup">
+      <widget class="QPushButton" name="signup_btn">
        <property name="text">
-        <string>Sign-in</string>
+        <string>Criar conta</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="btn_login">
+      <widget class="QPushButton" name="login_btn">
        <property name="text">
-        <string>Log-in</string>
+        <string>Entrar</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="btn_esqueci">
+      <widget class="QPushButton" name="forget_btn">
        <property name="text">
         <string>Esqueci minha senha</string>
        </property>
@@ -79,24 +79,18 @@
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="verticalLayoutWidget_2">
+   <widget class="QLabel" name="label_output">
     <property name="geometry">
      <rect>
-      <x>59</x>
-      <y>350</y>
-      <width>581</width>
-      <height>80</height>
+      <x>0</x>
+      <y>366</y>
+      <width>641</width>
+      <height>51</height>
      </rect>
     </property>
-    <layout class="QVBoxLayout" name="Layout_output">
-     <item>
-      <widget class="QLabel" name="label_output">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-    </layout>
+    <property name="text">
+     <string/>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -104,7 +98,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>687</width>
+     <width>645</width>
      <height>22</height>
     </rect>
    </property>
